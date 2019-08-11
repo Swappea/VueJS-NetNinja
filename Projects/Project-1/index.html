@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>VueJS NetNinja</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="vue-app">
+        <h1>{{greet('Afternoon')}}</h1>
+
+        <h3>Events</h3>
+        <button @click.once="add(1)">Add</button>
+        <button v-on:click="subtract(1)">Subtract</button>
+        <button @dblclick="add(10)">Add</button>
+        <button v-on:dblclick="subtract(10)">Subtract</button>
+        <p><a v-on:click.prevent="click" :href="website">Google(Prevent default)</a></p>
+        <div id="canvas" v-on:mousemove="updateXY">
+            {{x}}, {{y}}
+        </div>
+
+        <h3>Keyboard Events</h3>
+        <input type="text" v-on:keyup.alt.enter="logName">
+        <input type="text" v-on:keyup.enter="logAge">
+
+        <br>
+        <br>
+
+        <h3>Data binding</h3>
+        <p><a v-bind:href="website">Google(v-bind)</a></p>
+        <p><a :href="website">Google(shortcut of v-bind)</a></p>
+        <p v-html="websiteTag"></p>
+
+        <h3>2 way data binding</h3>
+        <input type="text" v-model="name">
+        <input type="text" v-model="age">
+        <p>My name is {{name}}</p>
+        <p>My age is {{age}}</p>
+
+        <h3>Computed Properties</h3>
+        <button v-on:click="a++">Add to A</button>
+        <button v-on:click="b++">Add to B</button>
+        <p>A - {{ a }}</p>
+        <p>B - {{ b }}</p>
+        <p>Age + A = {{ addToA }}</p>
+        <p>Age + B = {{ addToB }}</p>
+
+        <h3>Dynamic Class</h3>
+        <h4>Example 1</h4>
+        <div @click="available = !available" v-bind:class="{available: available}">
+            <span>John</span>
+        </div>
+        <h4>Example 2</h4>
+        <button @click="nearby = !nearby">Toggle nearby</button>
+        <button @click="available = !available">Toggle available</button>
+        <div v-bind:class="compClasses">
+            <span>Jane</span>
+        </div>
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

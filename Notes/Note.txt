@@ -1,0 +1,97 @@
+VueJS
+
+-- frontend framework
+-- similar to angular and react
+-- prod version 16kb very lean
+-- high runtime perfomance
+ 
+
+
+Vue Instance
+https://vuejs.org/v2/guide/instance.html
+-- new Vue({
+    el: '' //root element
+   });
+-- one Instance to control whole app or 3 instances to control 3 separates parts
+
+
+Data & Methods
+https://vuejs.org/v2/guide/instance.html#Data-and-Methods
+-- use string interpolation to output data and Methods
+-- data and methods are object props within vue object
+new Vue({
+    el: '#vue-app',
+    data: {
+        name: 'Swapnesh'
+    },
+    methods: {
+        greet: function(time) {
+            return `Good ${time} ${this.name}`;
+        }
+    },
+});
+
+<h1>{{greet('Afternoon')}}</h1>
+<p>Age is {{age}}</p>
+
+
+Data Binding
+https://vuejs.org/v2/guide/syntax.html#Shorthands
+-- v-bind to bind
+<a v-bind:href="website">Google</a>
+-- shortcut
+<a :href="website">Google</a>
+
+-- html output using v-html
+<p v-html="websiteTag"></p>
+
+Events
+https://vuejs.org/v2/guide/events.html
+-- v-on:event
+-- <button v-on:click="add">Add</button>
+-- shortcut @event
+<button @click="add(1)">Add</button>
+
+Event Modifiers
+https://vuejs.org/v2/guide/events.html#Event-Modifiers
+-- once will allow event to fire only once
+-- <button @click.once="add(1)">Add</button>
+
+-- prevent default... .prevent
+<p><a v-on:click.prevent="click" :href="website">Google(Prevent default)</a></p>
+
+Keyboard Events
+https://vuejs.org/v2/guide/events.html#Key-Modifiers
+<input type="text" v-on:keyup.alt.enter="logName">
+<input type="text" v-on:keyup.enter="logAge">
+
+2 way data Binding
+-- v-model
+<input type="text" v-model="name">
+
+Computed Properties
+computed: {
+        addToA: function() {
+            console.log('addToA');
+            return this.a + this.age;
+        },
+        addToB: function() {
+            console.log('addToB');
+            return this.b + this.age;
+        }
+    },
+
+<h3>Computed Properties</h3>
+<button v-on:click="a++">Add to A</button>
+<button v-on:click="b++">Add to B</button>
+<p>A - {{ a }}</p>
+<p>B - {{ b }}</p>
+<p>Age + A = {{ addToA }}</p>
+<p>Age + B = {{ addToB }}</p>
+
+Dynamic Css classes
+--v-bind:class="{available: available}"
+-- v-bind:class="compClasses"
+expects a object with comma separated key value(class:boolean, class:boolean)
+
+https://www.youtube.com/watch?v=4Gh5YcvGDjI&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=11
