@@ -90,8 +90,87 @@ computed: {
 <p>Age + B = {{ addToB }}</p>
 
 Dynamic Css classes
---v-bind:class="{available: available}"
+-- v-bind:class="{available: available}"
 -- v-bind:class="compClasses"
 expects a object with comma separated key value(class:boolean, class:boolean)
 
 https://www.youtube.com/watch?v=4Gh5YcvGDjI&list=PL4cUxeGkcC9gQcYgjhBoeQH7wiAyZNrYa&index=11
+
+Conditionals
+
+v-if 
+<p v-if="error">Error</p>
+<p v-else-if="sucess">Sucess</p>
+-- removes from dom
+
+
+v-show
+<p v-show="error">Error</p>
+<p v-show="sucess">Sucess</p>
+-- doesnt remove from dom but adds display:none to element
+
+Looping with v-for
+
+<li v-for="name in names">
+
+<li v-for="(employee, index) in employees">
+
+<template v-for="(employee, index) in employees">
+
+<template v-for="(employee, index) in employees">
+    <div v-for="(val,key) in employee">
+        {{key}} - {{val}}
+    </div>
+</template>
+
+Multiple Vue instances
+var one = new Vue({
+    el: '#vue-app-one',
+    data: {
+        title: 'Vue App One'
+    },
+    methods: {
+
+    },
+    computed: {
+        greet: function () {
+            return 'This is app one';
+        }
+    },
+});
+
+var two = new Vue({
+    el: '#vue-app-two',
+    data: {
+        title: 'Vue App Two'
+    },
+    methods: {
+        changeTitle: function () {
+            one.title = 'Vue App One (modified by vue instance 2)';
+        }
+    },
+    computed: {
+        greet: function () {
+            return 'This is app two';
+        }
+    },
+});
+
+two.title = "Vue App Two(changed from outside)";
+
+
+Intro to Components
+
+Vue.component('greeting', {
+    template: 'HTML codee',
+    data: function() {
+        return {
+            name: 'John'
+        }
+    }
+});
+
+<greeting></greeting>
+
+for component instances we return data as a function and that function returns a fresh instance of
+object everytime because data sharing should not happen as it is resuable component

@@ -10,7 +10,27 @@ new Vue({
         a: 0,
         b: 0,
         available: false,
-        nearby: false
+        nearby: false,
+        error: false,
+        sucess: false,
+        names: ['John', 'Jane', 'Johnny', 'Mary'],
+        employees: [
+            {
+                id: 1,
+                name: 'John',
+                isAvailable: true
+            },
+            {
+                id: 2,
+                name: 'Jane',
+                isAvailable: false
+            },
+            {
+                id: 3,
+                name: 'Johnny',
+                isAvailable: true
+            }
+        ]
     },
     methods: {
         greet: function (time) {

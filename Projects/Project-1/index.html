@@ -9,8 +9,8 @@
 
 <body>
     <div id="vue-app">
-        <h1>{{greet('Afternoon')}}</h1>
-
+        <!-- <h1>{{greet('Afternoon')}}</h1>
+        
         <h3>Events</h3>
         <button @click.once="add(1)">Add</button>
         <button v-on:click="subtract(1)">Subtract</button>
@@ -57,7 +57,36 @@
         <button @click="available = !available">Toggle available</button>
         <div v-bind:class="compClasses">
             <span>Jane</span>
-        </div>
+        </div> 
+
+        <h3>Conditionals</h3>
+        <button v-on:click="error = !error">Toggle Error</button>
+        <button v-on:click="sucess = !sucess">Toggle Sucess</button>
+        <p v-if="error">Error</p>
+        <p v-else-if="sucess">Sucess</p>
+
+        <p v-show="error">Error</p>
+        <p v-show="sucess">Sucess</p> -->
+
+        <h3>Looping with v-for</h3>
+        <ul>
+            <li v-for="name in names">
+                {{name}}
+            </li>
+        </ul>
+        <ul>
+            <li v-for="(employee, index) in employees">
+                {{index}} - {{employee.id}} . {{employee.name}} - {{employee.isAvailable}}
+            </li>
+        </ul>
+        <template v-for="(employee, index) in employees">
+            <p> {{index}} - {{employee.id}} . {{employee.name}} - {{employee.isAvailable}}</p>
+        </template>
+        <template v-for="(employee, index) in employees">
+            <div v-for="(val,key) in employee">
+                {{key}} - {{val}}
+            </div>
+        </template>
 
     </div>
     <script src="app.js"></script>
