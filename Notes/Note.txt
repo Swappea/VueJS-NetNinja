@@ -174,3 +174,49 @@ Vue.component('greeting', {
 
 for component instances we return data as a function and that function returns a fresh instance of
 object everytime because data sharing should not happen as it is resuable component
+
+Referencing with Refs
+-- Reference of html elements in our page and we can grab information.
+<input type="text" ref="input"/>
+this.$refs.input.value
+
+Vue Cli v3
+
+-- create dev env with webpack
+-- es6
+-- compile and minify
+-- single file template
+-- compile on machine
+-- live relaod dev server
+
+npm i -g vue-cli
+
+vue create <project-name>
+cd <project-name>
+npm run serve
+
+Register Vue Component globally
+
+in main.VueJS
+import Component from './Component.vue'
+Vue.component('component', Component)
+<component></component>
+
+Nest component locally
+// local import
+import Component from ".Component.vue";
+
+export default {
+  components: {
+    Component
+    or
+    // 'any-name': Component
+  }
+};
+
+Component CSS (scoped)
+
+<style scoped></style>
+this will scope css to particular tempalte in that file
+vuejs uses then data-attributes(a particular id) to scoped the css 
+each component has unique id

@@ -8,18 +8,25 @@
 </head>
 
 <body>
-    <h3>Multiple Vue instances</h3>
+    <!-- <h3>Multiple Vue instances</h3>
     <div id="vue-app-one">
-        <!-- <h2>{{title}}</h2>
-        <p>{{greet}}</p> -->
+        <h2>{{title}}</h2>
+        <p>{{greet}}</p>
         <greeting></greeting>
 
     </div>
     <div id="vue-app-two">
-        <!-- <h2>{{title}}</h2>
+        <h2>{{title}}</h2>
         <p>{{greet}}</p>
-        <button @click="changeTitle">Change App One Title</button> -->
+        <button @click="changeTitle">Change App One Title</button> 
         <greeting></greeting>
+    </div> -->
+    <div id="vue-app">
+        <h3>Refs</h3>
+        <input type="text" ref="input"/>
+        <button @click="readRefs">Submit</button>
+        <p>Food: {{ output }}</p>
+        <div ref="test"></div>
     </div>
     <script src="app.js"></script>
 </body>
