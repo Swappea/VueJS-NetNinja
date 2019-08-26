@@ -220,3 +220,17 @@ Component CSS (scoped)
 this will scope css to particular tempalte in that file
 vuejs uses then data-attributes(a particular id) to scoped the css 
 each component has unique id
+
+
+Props
+<app-ninjas :ninjas="ninjas"></app-ninjas>
+
+props: ["ninjas"],
+
+Validation for props
+props: {
+    ninjas: {
+      type: Array,
+      required: true
+    }
+  },
